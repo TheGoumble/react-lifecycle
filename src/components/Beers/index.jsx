@@ -15,13 +15,13 @@ export default function Beers() {
   }
   return (
     <>
-      <button onClick={() => setBeerType("ale")}>Ale</button>
-      <button onClick={() => setBeerType("stouts")}>Stouts</button>
-      <section>
-        {beerList.map(beer => (
-          <BeerCard key={beer.id} beer={beer} />
-        ))}
-      </section>
-    </>
-  )
+    <button onClick={() => setBeerType('ale')}>Ale</button>
+    <button onClick={() => setBeerType('stouts')}>Stouts</button>
+    <section id="beerList">
+      {beerList.map(beer => (
+        <BeerCard key={beer.id} beer={beer} />
+      ))}
+    </section>
+  </>
+)
 }
