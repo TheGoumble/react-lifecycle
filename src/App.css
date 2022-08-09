@@ -1,5 +1,12 @@
 body{
   background-color: burlywood;
   padding: 1em;
-  
+
+}
+
+#beerlist{
+  display: flex;
+  direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

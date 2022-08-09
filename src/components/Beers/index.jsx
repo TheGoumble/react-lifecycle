@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
+import BeerCard from "./BeerCard"
 
 export default function Beers() {
   const [beerList, setBeerList] = useState()
   const [beerType, setBeerType] = useState("ale")
   useEffect(() => {
     fetch(`https://api.sampleapis.com/beers/${beerType}`) //ale, stouts, red-ale
-      .then(response => response.json())
-      .then(beers => setBeerList(beers))
+      .then((response) => response.json())
+      .then((beers) => setBeerList(beers))
       .catch(alert)
   }, [beerType])
   if (!beerList) {
@@ -16,11 +17,11 @@ export default function Beers() {
     <>
       <button onClick={() => setBeerType("ale")}>Ale</button>
       <button onClick={() => setBeerType("stouts")}>Stouts</button>
-      <ul>
-        {beerList.map(beer => {
-          <li key={beer.id}>{beer.name}</li>
-        })}
-      </ul>
+      <section>
+        {beerList.map(beer => (
+          <BeerCard key={beer.id} beer={beer} />
+        ))}
+      </section>
     </>
   )
 }
